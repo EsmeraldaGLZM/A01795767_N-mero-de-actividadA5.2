@@ -94,5 +94,6 @@ def main():
     write_results(output_filename, total_sales, elapsed_time, errors)
 
 
+
 if __name__ == "__main__":
     main()
