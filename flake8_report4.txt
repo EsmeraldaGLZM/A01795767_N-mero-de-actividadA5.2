@@ -1,0 +1,7 @@
+computeSales.py:8:1: E303 too many blank lines (3)
+computeSales.py:19:1: E303 too many blank lines (3)
+computeSales.py:42:1: E303 too many blank lines (3)
+computeSales.py:54:1: E303 too many blank lines (3)
+computeSales.py:63:1: E303 too many blank lines (3)
+computeSales.py:99:1: E303 too many blank lines (3)
+computeSales.py:101:1: W391 blank line at end of file

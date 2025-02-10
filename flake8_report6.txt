@@ -1,0 +1,6 @@
+computeSales.py:6:1: E302 expected 2 blank lines, found 1
+computeSales.py:15:1: E302 expected 2 blank lines, found 1
+computeSales.py:31:1: E302 expected 2 blank lines, found 1
+computeSales.py:41:1: E302 expected 2 blank lines, found 1
+computeSales.py:48:1: E302 expected 2 blank lines, found 1
+computeSales.py:74:1: E305 expected 2 blank lines after class or function definition, found 0

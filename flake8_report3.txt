@@ -1,0 +1,8 @@
+computeSales.py:6:1: E302 expected 2 blank lines, found 1
+computeSales.py:15:1: E302 expected 2 blank lines, found 1
+computeSales.py:36:1: E302 expected 2 blank lines, found 1
+computeSales.py:46:1: E302 expected 2 blank lines, found 1
+computeSales.py:53:1: E302 expected 2 blank lines, found 1
+computeSales.py:87:1: E305 expected 2 blank lines after class or function definition, found 1
+computeSales.py:89:1: W293 blank line contains whitespace
+computeSales.py:89:5: W292 no newline at end of file
