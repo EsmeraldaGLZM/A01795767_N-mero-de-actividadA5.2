@@ -14,28 +14,38 @@ def read_json_file(filename):
         return None
 
 
+def create_price_dict(price_catalogue):
+    """Convierte la lista de productos en un diccionario con precios."""
+    price_dict = {}
+    for item in price_catalogue:
+        product_name = item.get("title")
+        price = item.get("price")
+        if product_name and isinstance(price, (int, float)):
+            price_dict[product_name] = price
+    return price_dict
+
 
 def compute_total_sales(price_catalogue, sales_record):
     """Calcula el costo total de las ventas basándose en el catálogo de precios."""
+    price_dict = create_price_dict(price_catalogue)
     total_sales = 0
     errors = []
-
+    
     for sale in sales_record:
-        product = sale.get("product")
-        quantity = sale.get("quantity")
-
-        if product not in price_catalogue:
+        product = sale.get("Product")  # Se ajusta para coincidir con el formato del JSON
+        quantity = sale.get("Quantity")
+        
+        if product not in price_dict:
             errors.append(f"Producto no encontrado: {product}")
             continue
-
+        
         if not isinstance(quantity, (int, float)) or quantity < 0:
             errors.append(f"Cantidad inválida para {product}: {quantity}")
             continue
-
-        total_sales += price_catalogue[product] * quantity
-
+        
+        total_sales += price_dict[product] * quantity
+    
     return total_sales, errors
-
 
 
 def write_results(filename, total_sales, elapsed_time, errors):
@@ -49,14 +59,12 @@ def write_results(filename, total_sales, elapsed_time, errors):
                 file.write(f"- {error}\n")
 
 
-
 def run_flake8():
     """Ejecuta Flake8 y guarda el reporte en un archivo."""
     flake8_report = "flake8_report.txt"
     command = "py -3.9 -m flake8 computeSales.py --max-line-length=100 > flake8_report.txt"
     os.system(command)
     print(f"Reporte de Flake8 generado en {flake8_report}")
-
 
 
 def main():
@@ -92,7 +100,6 @@ def main():
             print(f"- {error}")
 
     write_results(output_filename, total_sales, elapsed_time, errors)
-
 
 
 if __name__ == "__main__":
